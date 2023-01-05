@@ -1,0 +1,55 @@
+{
+    "steps": {
+        "stepOne": {
+            "title": "Step 1: Chapter Details",
+            "labels":{}
+            
+        },
+        "stepTwo": {
+
+        },
+        "stepThree": {
+
+        }
+    },
+    "publications": [
+        {
+            "title":"Chapter Title",
+            "releaseDate": "Date Of Release",
+            "issueNumber": "",
+            "content": "",
+            "question": {
+                "questionTitle": "",
+                "optionOne": "",
+                "optionTwo": ""
+            },
+            "stake": ""
+        },
+        {
+            "title":"Lonely Winter",
+            "releaseDate": "Date Of Release",
+            "issueNumber": "",
+            "content": "",
+            "question": {
+                "questionTitle": "",
+                "optionOne": "",
+                "optionTwo": ""
+            },
+            "stake": ""
+        }
+    ],
+    "footer": [
+        {
+            "name":"Aabhash Pansari",
+            "rollNo": "11014802719"
+        },
+        {
+            "name":"Pragun Dua",
+            "rollNo": "11014802719"
+        },
+        {
+            "name":"Jenice Tomar",
+            "rollNo": "11014802719"
+        }
+    ]
+}
