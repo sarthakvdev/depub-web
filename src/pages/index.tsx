@@ -9,10 +9,9 @@ import data from '../data/data.json';
 export default function Home() {
   const router = useRouter();
   return (
-    <Container className="justify-around">
+    <Container>
       <MetaHead title={SITE_NAME} description={SITE_DESCRIPTION} />
-
-      <main className="mt-16 w-1/3 basis-4/5 flex justify-center items-center">
+      <main className="w-1/3 flex justify-center items-center">
         <FlexCol className="gap-4">
           <h1 className="text-9xl font-bold text-center">DePub</h1>
           <h4 className="text-2xl font-normal text-center">

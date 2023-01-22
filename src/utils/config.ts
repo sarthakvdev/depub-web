@@ -1,26 +1,12 @@
-import {
-  mainnet,
-  goerli,
-  sepolia,
-  polygon,
-  optimism,
-  arbitrum,
-} from '@wagmi/chains';
+import { mainnet, goerli, polygon, polygonMumbai } from '@wagmi/chains';
 
 export const SITE_NAME = 'DePub';
 export const SITE_DESCRIPTION = 'The Decentralised Publishing Platform';
 
-export const SOCIAL_TWITTER = '0xSarthak';
-export const SOCIAL_GITHUB = 'sarthakvdev/depub-web';
+export const SOCIAL_TWITTER = '';
+export const SOCIAL_GITHUB = '';
 
-export const ETH_CHAINS = [
-  mainnet,
-  goerli,
-  sepolia,
-  polygon,
-  optimism,
-  arbitrum,
-];
+export const ETH_CHAINS = [mainnet, goerli, polygon, polygonMumbai];
 
 export const SERVER_SESSION_SETTINGS = {
   cookieName: SITE_NAME,

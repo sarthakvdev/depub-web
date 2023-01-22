@@ -6,17 +6,23 @@ export default function NetworkStatus() {
   const network = useNetwork();
   const explorerUrl = network.chain?.blockExplorers?.default.url;
 
+  console.log(network);
+
   return (
-    <div className="flex items-center gap-1 z-10 bg-gray-50 p-1">
-      <div className="px-3 py-1 text-xs bg-purple-300 font-medium rounded">
-        {network.chain?.name ?? 'Ethereum'}
-      </div>
-      {explorerUrl && (
-        <LinkComponent href={explorerUrl}>
-          <p className="font-xs"># {block.data}</p>
-        </LinkComponent>
+    <>
+      {network.chain?.id && (
+        <div className="flex items-center gap-1 z-10 bg-gray-50 p-1">
+          <div className="px-3 py-1 text-xs bg-purple-300 font-medium rounded">
+            {network.chain?.name}
+          </div>
+          {explorerUrl && (
+            <LinkComponent href={explorerUrl}>
+              <p className="font-xs"># {block.data}</p>
+            </LinkComponent>
+          )}
+          {!explorerUrl && <p className="font-xs"># {block.data}</p>}
+        </div>
       )}
-      {!explorerUrl && <p className="font-xs"># {block.data}</p>}
-    </div>
+    </>
   );
 }

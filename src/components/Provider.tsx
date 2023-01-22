@@ -5,26 +5,26 @@ import { ConnectKitProvider, getDefaultClient } from 'connectkit';
 import { ETH_CHAINS, SITE_NAME } from 'utils/config';
 
 interface Props {
-	children: ReactNode;
+  children: ReactNode;
 }
 
 const { provider, webSocketProvider } = configureChains(ETH_CHAINS, [
-	publicProvider(),
+  publicProvider(),
 ]);
 
 const client = createClient(
-	getDefaultClient({
-		appName: SITE_NAME,
-		autoConnect: true,
-		provider,
-		webSocketProvider,
-	})
+  getDefaultClient({
+    appName: SITE_NAME,
+    autoConnect: true,
+    provider,
+    webSocketProvider,
+  })
 );
 
 export default function Provider(props: Props) {
-	return (
-		<WagmiConfig client={client}>
-			<ConnectKitProvider theme="soft">{props.children}</ConnectKitProvider>
-		</WagmiConfig>
-	);
+  return (
+    <WagmiConfig client={client}>
+      <ConnectKitProvider theme="soft">{props.children}</ConnectKitProvider>
+    </WagmiConfig>
+  );
 }
