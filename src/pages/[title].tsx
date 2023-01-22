@@ -13,10 +13,11 @@ function Details() {
   const [quiz, setQuiz] = useState(false);
   const router = useRouter();
   const { title } = router.query;
+
   return (
-    <Container>
-      <main className="gap-6 w-[30%] flex flex-col justify-around items-start">
-        <div className="flex justify-between items-center w-full">
+    <FlexCol>
+      <FlexCol className="my-16 gap-6 w-1/3 flex flex-col justify-around items-start">
+        <div className="flex items-center w-full">
           <Link href="/explore">
             <h4 className="mb-4 text-xl">Go Back</h4>
           </Link>
@@ -61,20 +62,22 @@ function Details() {
             />
           </FlexCol>
         ) : (
-          <FlexCol className="w-full gap-6">
+          <FlexCol className="w-full gap-6 mb-20">
             <Button
               text="read"
+              // Write the flow how someone will read the chapter
               className="bg-[#c1c1c1] w-full p-3 text-lg font-bold rounded-md"
+              disabled={true}
             />
             <Button
               onClick={() => setQuiz(!quiz)}
               text="read + stake"
-              className="w-full p-3 text-lg font-bold rounded-md"
+              className="w-full p-3 text-lg font-bold rounded-md border border-[#747474]"
             />
           </FlexCol>
         )}
-      </main>
-    </Container>
+      </FlexCol>
+    </FlexCol>
   );
 }
 

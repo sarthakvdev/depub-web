@@ -6,7 +6,7 @@ export const SITE_DESCRIPTION = 'The Decentralised Publishing Platform';
 export const SOCIAL_TWITTER = '';
 export const SOCIAL_GITHUB = '';
 
-export const ETH_CHAINS = [mainnet, goerli, polygon, polygonMumbai];
+export const ETH_CHAINS = [polygonMumbai];
 
 export const SERVER_SESSION_SETTINGS = {
   cookieName: SITE_NAME,
