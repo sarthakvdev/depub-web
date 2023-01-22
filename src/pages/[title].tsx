@@ -15,7 +15,6 @@ function Details() {
   const { title } = router.query;
   return (
     <Container>
-      <FlexCol></FlexCol>
       <main className="gap-6 w-[30%] flex flex-col justify-around items-start">
         <div className="flex justify-between items-center w-full">
           <Link href="/explore">

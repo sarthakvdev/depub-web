@@ -2,29 +2,33 @@ import { FC, ReactNode } from 'react';
 import Link from 'next/link';
 
 interface Props {
-	href: string;
-	children: ReactNode;
-	isExternal?: boolean;
-	className?: string;
+  href: string;
+  children: ReactNode;
+  isExternal?: boolean;
+  className?: string;
 }
 
-const LinkComponent: FC<Props> = (props: Props) => {
-	const isExternal =
-		props.href.match(/^([a-z0-9]*:|.{0})\/\/.*$/) || props.isExternal;
+const LinkComponent: FC<Props> = ({
+  href,
+  children,
+  isExternal,
+  className,
+}: Props) => {
+  const isExternalCheck = href.match(/^([a-z0-9]*:|.{0})\/\/.*$/) || isExternal;
 
-	if (isExternal) {
-		return (
-			<a
-				className="underline"
-				href={props.href}
-				target="_blank"
-				rel="noopener noreferrer">
-				{props.children}
-			</a>
-		);
-	}
+  if (isExternalCheck) {
+    return (
+      <a
+        className="underline"
+        href={href}
+        target="_blank"
+        rel="noopener noreferrer">
+        {children}
+      </a>
+    );
+  }
 
-	return <Link href={props.href}>{props.children}</Link>;
+  return <Link href={href}>{children}</Link>;
 };
 
 export default LinkComponent;

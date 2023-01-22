@@ -23,6 +23,7 @@
 	"dependencies": {
 		"@next/font": "13.1.1",
 		"@wagmi/chains": "^0.1.7",
+		"clsx": "^1.2.1",
 		"connectkit": "^1.1.1",
 		"dayjs": "^1.11.7",
 		"ethers": "^5.7.2",

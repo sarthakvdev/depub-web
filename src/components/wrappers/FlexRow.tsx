@@ -1,10 +1,11 @@
+import { WrapperType } from 'utils/types';
 
-const FlexRow = ({children, className}) => {
+const FlexRow = ({ children, className }: WrapperType) => {
   return (
     <div className={`flex flex-row items-center justify-around ${className}`}>
-        {children}
+      {children}
     </div>
-  )
-}
+  );
+};
 
-export default FlexRow
+export default FlexRow;
