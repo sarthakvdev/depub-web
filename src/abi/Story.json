@@ -164,6 +164,11 @@
         "internalType": "string",
         "name": "aboutAuthor",
         "type": "string"
+      },
+      {
+        "internalType": "address",
+        "name": "authorAddr",
+        "type": "address"
       }
     ],
     "stateMutability": "view",
@@ -319,9 +324,31 @@
     "name": "getAllAuthors",
     "outputs": [
       {
-        "internalType": "string[]",
+        "components": [
+          {
+            "internalType": "string",
+            "name": "name",
+            "type": "string"
+          },
+          {
+            "internalType": "string",
+            "name": "aboutAuthor",
+            "type": "string"
+          },
+          {
+            "internalType": "uint256[]",
+            "name": "bookIdList",
+            "type": "uint256[]"
+          },
+          {
+            "internalType": "address",
+            "name": "authorAddr",
+            "type": "address"
+          }
+        ],
+        "internalType": "struct CreateActors.author[]",
         "name": "",
-        "type": "string[]"
+        "type": "tuple[]"
       }
     ],
     "stateMutability": "view",
@@ -395,6 +422,36 @@
     "type": "function"
   },
   {
+    "inputs": [],
+    "name": "getAllReaders",
+    "outputs": [
+      {
+        "components": [
+          {
+            "internalType": "string",
+            "name": "name",
+            "type": "string"
+          },
+          {
+            "internalType": "string",
+            "name": "aboutReader",
+            "type": "string"
+          },
+          {
+            "internalType": "address",
+            "name": "readerAddr",
+            "type": "address"
+          }
+        ],
+        "internalType": "struct CreateActors.reader[]",
+        "name": "",
+        "type": "tuple[]"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
     "inputs": [
       {
         "internalType": "uint256",
@@ -452,6 +509,30 @@
         "internalType": "string",
         "name": "aboutReader",
         "type": "string"
+      },
+      {
+        "internalType": "address",
+        "name": "readerAddr",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "name": "readerIdToAddress",
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
       }
     ],
     "stateMutability": "view",
