@@ -10,7 +10,7 @@ function FirstStep() {
           <Link href="/dashboard">
             <h4 className="text-xl">Go Back</h4>
           </Link>
-          <Link href="/secondStep">
+          <Link href="/author/secondStep">
             <h4 className="text-xl font-bold underline">Step 2: Add Poll</h4>
           </Link>
         </div>

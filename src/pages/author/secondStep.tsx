@@ -8,10 +8,10 @@ function SecondStep() {
     <Container className="overflow-y-hidden">
       <main className="gap-10 w-[30%] flex flex-col justify-around items-start">
         <div className="flex justify-between items-center w-full">
-          <Link href="/firstStep">
+          <Link href="/author/firstStep">
             <h4 className="text-xl">Go Back</h4>
           </Link>
-          <Link href="/thirdStep">
+          <Link href="/author/thirdStep">
             <h4 className="text-xl font-bold underline">Step 3: Stake Matic</h4>
           </Link>
         </div>
