@@ -21,12 +21,12 @@ export default function Home() {
           <div className="w-full p-2 gap-4 flex flex-row justify-around">
             <Button
               text="for authors"
-              onClick={() => router.push('/dashboard')}
+              onClick={() => router.push('/author')}
               className="p-2"
             />
             <Button
               text="for readers"
-              onClick={() => router.push('/explore')}
+              onClick={() => router.push('/reader')}
               className="p-2"
             />
           </div>

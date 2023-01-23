@@ -1,12 +1,17 @@
 import { useRouter } from 'next/router';
 import Link from 'next/link';
-import Button from '../components/Button';
-import Publication from '../components/Publication';
-import Container from '../components/wrappers/Container';
-import FlexCol from '../components/wrappers/FlexCol';
-import data from '../data/data.json';
-import { useState } from 'react';
-import Input from '../components/Input';
+import Button from '../../components/Button';
+import Publication from '../../components/Publication';
+import FlexCol from '../../components/wrappers/FlexCol';
+import data from '../../data/data.json';
+import { useEffect, useState } from 'react';
+import Input from '../../components/Input';
+import {
+  useContractWrite,
+  useContractRead,
+  usePrepareContractWrite,
+} from 'wagmi';
+import { CREATEACTORS_CONTRACT } from 'utils/config';
 
 function Details() {
   const [staked, setStaked] = useState(false);
@@ -14,19 +19,68 @@ function Details() {
   const router = useRouter();
   const { title } = router.query;
 
+  // Calling createreader function to create a reader
+  // const { config: createReaderConfig } = usePrepareContractWrite({
+  //   ...CREATEACTORS_CONTRACT,
+  //   functionName: 'createReader',
+  //   args: ['JK Rowling', 'Author of Harry Potter series of Books'],
+  // });
+
+  // const {
+  //   data: contractData,
+  //   isLoading,
+  //   isSuccess,
+  //   write: createReader,
+  //   error,
+  // } = useContractWrite(createReaderConfig);
+
+  // const { config: createAuthorConfig } = usePrepareContractWrite({
+  //   ...CREATEACTORS_CONTRACT,
+  //   functionName: 'createAuthor',
+  //   args: [
+  //     'Stephen King',
+  //     'Most famous Horror fiction writer of this generation.',
+  //   ],
+  //   // enabled: false,
+  //   onSuccess: (data) => {
+  //     console.log('success data', data);
+  //   },
+  // });
+
+  // const { write: createAuthor } = useContractWrite(createAuthorConfig);
+
+  // const {
+  //   data: authorsData,
+  //   isLoading: authorsLoading,
+  //   isSuccess: authorsSuccess,
+  // } = useContractRead({
+  //   ...CREATEACTORS_CONTRACT,
+  //   functionName: 'getAllAuthors',
+  // });
+
+  // const printAuthors = () => {
+  //   console.log('authors list', authorsData);
+  // };
+
+  // useEffect(() => {
+  //   console.log('loading', createAuthorsLoading);
+  //   console.log('success', createAuthorSuccess);
+  // }, [createAuthorSuccess, createAuthorsLoading]);
+
   return (
     <FlexCol>
       <FlexCol className="my-16 gap-6 w-1/3 flex flex-col justify-around items-start">
         <div className="flex items-center w-full">
-          <Link href="/explore">
+          <Link href="/reader/explore">
             <h4 className="mb-4 text-xl">Go Back</h4>
           </Link>
         </div>
         {data.publications
           .filter((publication) => publication.title === title)
-          .map((item) => (
+          .map((item, index) => (
             <Publication
               title={item.title}
+              key={index}
               releaseDate={item.releaseDate}
               className="mb-8"
             />
@@ -54,7 +108,7 @@ function Details() {
               text="Rajesh"
               className="bg-transparent border border-black w-full p-3 text-lg font-bold rounded-md"
             />
-            <Input label="Enter Amount" />
+            <Input label="Enter Amount (in MATIC)" type="number" />
             <Button
               onClick={() => setStaked(true)}
               text="Stake"
@@ -65,13 +119,13 @@ function Details() {
           <FlexCol className="w-full gap-6 mb-20">
             <Button
               text="read"
+              onClick={() => {}}
               // Write the flow how someone will read the chapter
               className="bg-[#c1c1c1] w-full p-3 text-lg font-bold rounded-md"
-              disabled={true}
             />
             <Button
               onClick={() => setQuiz(!quiz)}
-              text="read + stake"
+              text={'read + stake'}
               className="w-full p-3 text-lg font-bold rounded-md border border-[#747474]"
             />
           </FlexCol>
