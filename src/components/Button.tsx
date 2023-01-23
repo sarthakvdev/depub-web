@@ -7,7 +7,7 @@ interface Props {
   disabled?: boolean;
 }
 
-const Button = ({ text, onClick, className, disabled }: Props) => {
+const Button = ({ text, onClick, className, disabled = false }: Props) => {
   return (
     <button
       className={clsx(
