@@ -11,27 +11,22 @@ import Container from 'components/wrappers/Container';
 import { CREATEACTORS_CONTRACT } from 'utils/config';
 
 const Dashboard = () => {
-  const { address, isConnecting, isDisconnected } = useAccount();
-  const [author, setAuthor] = useState('');
+  const { address } = useAccount();
+  const [authorName, setAuthorName] = useState('');
   const router = useRouter();
 
   // Fetches list of all authors
-  const { data: authorsData } = useContractRead({
+  const { data: allAuthorsData } = useContractRead({
     ...CREATEACTORS_CONTRACT,
     functionName: 'getAllAuthors',
   });
 
-  // useEffect(() => {
-  //   console.log('isConnecting', isConnecting);
-  //   console.log('isDisconnected', isDisconnected);
-  //   console.log('address', address);
-  // }, [isConnecting, isDisconnected, address]);
-
   useEffect(() => {
-    console.log('address', address);
-    const temp = authorsData.filter((author: any) => author[3] == address);
-    setAuthor(temp[0][0]);
-  }, [authorsData]);
+    if (allAuthorsData) {
+      const temp = allAuthorsData.filter((author: any) => author[3] == address);
+      setAuthorName(temp[0][0]);
+    }
+  }, [address, allAuthorsData]);
 
   return (
     <FlexCol>
@@ -42,8 +37,8 @@ const Dashboard = () => {
             Welcome,
             <span className="text-[#319AE5]">
               {' '}
-              {author.length > 0 ? (
-                <span>{author}</span>
+              {authorName.length > 0 ? (
+                <span>{authorName}</span>
               ) : (
                 <span>
                   {address.slice(0, 4)}...{address.slice(-4)}
@@ -54,24 +49,27 @@ const Dashboard = () => {
           <h3 className="text-4xl font-bold">My Chapters</h3>
           <FlexRow className="gap-8 border rounded-lg p-6">
             <div
-              onClick={() => router.push('/author/firstStep')}
+              onClick={() => router.push('/author/publish-chapter')}
               className="w-40 h-48 flex justify-center items-center text-4xl font-bold border-4 rounded-lg border-dashed border-black cursor-pointer">
               +
             </div>
             <h3 className="text-4xl font-bold">New Chapter</h3>
           </FlexRow>
-          {data.publications.map((publication) => (
-            <Link
-              href={{
-                pathname: `/${publication.title}`,
-                query: publication,
-              }}>
-              <Publication
-                title={publication.title}
-                releaseDate={publication.releaseDate}
-              />
-            </Link>
-          ))}
+          <div className="flex flex-col gap-y-6 items-start">
+            {data.publications.map((publication, index) => (
+              <Link
+                key={index}
+                href={{
+                  pathname: `/${publication.title}`,
+                  query: publication,
+                }}>
+                <Publication
+                  title={publication.title}
+                  releaseDate={publication.releaseDate}
+                />
+              </Link>
+            ))}
+          </div>
         </FlexCol>
       ) : (
         // Wallet is not connected
