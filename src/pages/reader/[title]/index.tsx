@@ -59,6 +59,13 @@ function Details() {
               {' '}
               go to explore page
             </span>
+            <br></br>
+            or{' '}
+            <span
+              className="underline cursor-pointer"
+              onClick={() => router.push('/bounty')}>
+              check bounty lock period
+            </span>
           </h4>
         ) : quiz ? (
           !isLoading ? (
@@ -71,7 +78,7 @@ function Details() {
                 onClick={() => setSelectionOption(0)}
                 className={clsx(
                   'bg-transparent border border-black w-full p-3 text-lg font-bold rounded-md',
-                  selectedOption == 0 && 'bg-blue-500 text-white'
+                  selectedOption == 0 && 'bg-purple-500 text-white'
                 )}
               />
               <Button
@@ -79,7 +86,7 @@ function Details() {
                 text={question.optionTwo}
                 className={clsx(
                   'bg-transparent border border-black w-full p-3 text-lg font-bold rounded-md',
-                  selectedOption == 1 && 'bg-blue-500 text-white'
+                  selectedOption == 1 && 'bg-purple-500 text-white'
                 )}
               />
               {/* Stake Amount */}
@@ -98,7 +105,6 @@ function Details() {
                 />
               </div>
               <Button
-                // onClick={() => setStaked(true)}
                 onClick={() => signMessage()}
                 disabled={isLoading}
                 text="Stake"

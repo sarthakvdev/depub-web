@@ -1,11 +1,10 @@
 import Button from 'components/Button';
-import Input from 'components/Input';
 import MetaHead from 'components/layout/MetaHead';
 import Container from 'components/wrappers/Container';
 import FlexCol from 'components/wrappers/FlexCol';
 import { NextPage } from 'next';
 import { useRouter } from 'next/router';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import {
   CREATEACTORS_CONTRACT,
   SITE_DESCRIPTION,

@@ -1,4 +1,3 @@
-import Container from 'components/wrappers/Container';
 import FlexCol from 'components/wrappers/FlexCol';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
