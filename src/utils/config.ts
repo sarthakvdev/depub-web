@@ -21,11 +21,11 @@ export const SERVER_SESSION_SETTINGS = {
 };
 
 export const CREATEACTORS_CONTRACT = {
-  address: '0x1e630D881934fa4A22d8906474703bFE94b0840B',
+  address: '0x4AAfA67575E670E95c955c6Ddde00ea6949FF676',
   abi: CreateActorsABI,
 };
 
 export const STORY_CONTRACT = {
-  address: '0x80f96A821945e879F850d12636f7064371EF2775',
+  address: '0xe02f23448bBCFF6ddE897F2842CD9ef768120912',
   abi: StoryABI,
 };

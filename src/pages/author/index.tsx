@@ -12,7 +12,6 @@ import {
   SITE_NAME,
 } from 'utils/config';
 import {
-  useContractEvent,
   useContractRead,
   useContractWrite,
   usePrepareContractWrite,
@@ -71,8 +70,10 @@ const AuthorIndex: NextPage = () => {
   }
 
   useEffect(() => {
-    checkIfExists();
-  }, []);
+    if (address) {
+      checkIfExists();
+    }
+  }, [address]);
 
   return (
     <Container>
