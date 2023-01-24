@@ -14,6 +14,8 @@ const Dashboard = () => {
   const { address } = useAccount();
   const [authorName, setAuthorName] = useState('');
   const router = useRouter();
+  const { title } = router.query;
+  const id = parseInt(title as string);
 
   // Fetches list of all authors
   const { data: allAuthorsData } = useContractRead({
@@ -60,7 +62,7 @@ const Dashboard = () => {
               <Link
                 key={index}
                 href={{
-                  pathname: `/author/${publication.title}`,
+                  pathname: `/author/${publication.id}`,
                   query: publication,
                 }}>
                 <Publication

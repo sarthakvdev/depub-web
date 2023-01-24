@@ -12,10 +12,11 @@ import {
 } from 'wagmi';
 import { CREATEACTORS_CONTRACT, STORY_CONTRACT } from 'utils/config';
 import { ethers } from 'ethers';
+import { useSignMessage } from 'wagmi';
 
 const PublishChapter = () => {
-  const [published, setPublished] = useState(true);
-  const [createBookLoading, setCreateBookLoading] = useState(false);
+  const [published, setPublished] = useState(false);
+  // const [createBookLoading, setCreateBookLoading] = useState(false);
   const [createChapterLoading, setCreateChapterLoading] = useState(false);
   const router = useRouter();
   const { address } = useAccount();
@@ -25,18 +26,19 @@ const PublishChapter = () => {
 
   const [chapterTitle, setChapterTitle] = useState('');
   const [content, setContent] = useState('');
-  const [question, setQuestion] = useState('');
-  const [authorChoice, setAuthorChoice] = useState(true);
 
-  const { data: allBooksData } = useContractRead({
-    ...CREATEACTORS_CONTRACT,
-    functionName: 'getAllBooks',
-  });
+  // const [question, setQuestion] = useState('');
+  // const [authorChoice, setAuthorChoice] = useState(true);
 
-  const { data: allChaptersData } = useContractRead({
-    ...STORY_CONTRACT,
-    functionName: 'getAllChaptersOfBook',
-  });
+  // const { data: allBooksData } = useContractRead({
+  //   ...CREATEACTORS_CONTRACT,
+  //   functionName: 'getAllBooks',
+  // });
+
+  // const { data: allChaptersData } = useContractRead({
+  //   ...STORY_CONTRACT,
+  //   functionName: 'getAllChaptersOfBook',
+  // });
 
   // useEffect(() => {
   //   if (allBooksData) {
@@ -45,32 +47,32 @@ const PublishChapter = () => {
   //   }
   // }, [allBooksData]);
 
-  // CREATE BOOK SET OF HOOKS
-  const { config: createBookConfig } = usePrepareContractWrite({
-    ...CREATEACTORS_CONTRACT,
-    functionName: 'createBook',
-    args: ['Harry Potter'],
-    onError: (error) => {
-      console.error(error);
-    },
-  });
+  // // CREATE BOOK SET OF HOOKS
+  // const { config: createBookConfig } = usePrepareContractWrite({
+  //   ...CREATEACTORS_CONTRACT,
+  //   functionName: 'createBook',
+  //   args: ['Harry Potter'],
+  //   onError: (error) => {
+  //     console.error(error);
+  //   },
+  // });
 
-  const { data: createBookData, writeAsync: createBookAsync } =
-    useContractWrite(createBookConfig);
+  // const { data: createBookData, writeAsync: createBookAsync } =
+  //   useContractWrite(createBookConfig);
 
-  // Function to create a book
-  const createBook = async () => {
-    setCreateBookLoading(true);
-    try {
-      const tx = await createBookAsync?.();
-      const res = tx?.wait();
-      setCreateBookLoading(false);
-    } catch (error) {
-      console.error(error);
-    } finally {
-      setCreateBookLoading(false);
-    }
-  };
+  // // Function to create a book
+  // const createBook = async () => {
+  //   setCreateBookLoading(true);
+  //   try {
+  //     const tx = await createBookAsync?.();
+  //     const res = tx?.wait();
+  //     setCreateBookLoading(false);
+  //   } catch (error) {
+  //     console.error(error);
+  //   } finally {
+  //     setCreateBookLoading(false);
+  //   }
+  // };
 
   // CREATE CHAPTER SET OF HOOKS
   const { config: createChapterConfig } = usePrepareContractWrite({
@@ -108,6 +110,11 @@ const PublishChapter = () => {
       setCreateChapterLoading(false);
     }
   };
+
+  // TEMP SIGNED MESSAGE
+  const { isLoading, isSuccess, signMessage } = useSignMessage({
+    message: `Creating chapter ${chapterTitle}. Sign to confirm the transaction!`,
+  });
 
   return (
     <FlexCol className="my-16">
@@ -182,9 +189,10 @@ const PublishChapter = () => {
         <Input label="Enter Amount (in MATIC)" type="number" />
         <Button
           text="Stake"
+          onClick={() => signMessage()}
           className="bg-[#c1c1c1] w-full p-3 text-lg font-bold rounded-md"
         />
-        <Button
+        {/* <Button
           text={
             createBookLoading ? 'Creating boook...' : 'Create Harry Potter Book'
           }
@@ -203,9 +211,9 @@ const PublishChapter = () => {
         <Button
           text="All Chapters"
           onClick={() => console.log('chapters', allChaptersData)}
-        />
+        /> */}
       </main>
-      {published && (
+      {isSuccess ? (
         <h4 className="mt-8 text-2xl font-bold">
           your chapter has been published!
           <span
@@ -215,6 +223,10 @@ const PublishChapter = () => {
             go to dashboard
           </span>
         </h4>
+      ) : isLoading ? (
+        <h4 className="mt-8 text-2xl font-bold">Creating chapter...</h4>
+      ) : (
+        ''
       )}
     </FlexCol>
   );
