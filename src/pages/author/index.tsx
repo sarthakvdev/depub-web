@@ -4,6 +4,7 @@ import MetaHead from 'components/layout/MetaHead';
 import Container from 'components/wrappers/Container';
 import FlexCol from 'components/wrappers/FlexCol';
 import { NextPage } from 'next';
+import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import {
@@ -69,17 +70,23 @@ const AuthorIndex: NextPage = () => {
     }
   }
 
-  useEffect(() => {
-    if (address) {
-      checkIfExists();
-    }
-  }, [address]);
+  // useEffect(() => {
+  //   if (address) {
+  //     checkIfExists();
+  //   }
+  // }, [address]);
 
   return (
     <Container>
       <MetaHead title={SITE_NAME} description={SITE_DESCRIPTION} />
       <main className="w-1/3 flex justify-center items-center">
         <FlexCol className="gap-4">
+          <p>
+            If already registered,{' '}
+            <Link href="/author/dashboard">
+              <span className="underline">click here</span>
+            </Link>
+          </p>
           <h1 className="text-4xl font-bold text-center">Register Author.</h1>
           <form>
             <div className="flex flex-col items-start w-full gap-4">

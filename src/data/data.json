@@ -1,50 +1,57 @@
 {
-	"steps": {
-		"stepOne": {
-			"title": "Step 1: Chapter Details",
-			"labels": {}
-		},
-		"stepTwo": {},
-		"stepThree": {}
-	},
-	"publications": [
-		{
-			"title": "Yearn: A Yield Story",
-			"releaseDate": "10 October 2012",
-			"issueNumber": "",
-			"content": "",
-			"question": {
-				"questionTitle": "",
-				"optionOne": "",
-				"optionTwo": ""
-			},
-			"stake": ""
-		},
-		{
-			"title": "Inch: An Aggregation Story",
-			"releaseDate": "26 June 2016",
-			"issueNumber": "",
-			"content": "",
-			"question": {
-				"questionTitle": "",
-				"optionOne": "",
-				"optionTwo": ""
-			},
-			"stake": ""
-		}
-	],
-	"footer": [
-		{
-			"name": "Aabhash Pansari",
-			"rollNo": "11014802719"
-		},
-		{
-			"name": "Pragun Dua",
-			"rollNo": "11014802719"
-		},
-		{
-			"name": "Jenice Tomar",
-			"rollNo": "11014802719"
-		}
-	]
+  "publications": [
+    {
+      "id": 0,
+      "title": "Harry Potter",
+      "releaseDate": "10 September 1999",
+      "issueNumber": "1",
+      "content": "Sed in risus sit amet nulla placerat ultricies sed a nulla. Maecenas eu orci varius nisl posuere accumsan sed vel massa. Curabitur quis nulla ex. Nunc porta nec arcu in dictum. Nunc id lacinia nunc. Morbi id orci dictum, dignissim urna id, tempor nisl. Nam tortor justo, blandit non feugiat a, vehicula ut diam. Nunc non felis aliquam, pulvinar mauris id, cursus purus. Sed mattis suscipit dolor in interdum. Morbi eu tincidunt tortor.",
+      "question": {
+        "questionTitle": "Should harry potter die in the next chapter?",
+        "optionOne": "True",
+        "optionTwo": "False"
+      },
+      "stake": "0.001 MATIC"
+    },
+    {
+      "id": 1,
+      "title": "The Secret History",
+      "releaseDate": "19 October 1992",
+      "issueNumber": "2",
+      "content": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+      "question": {
+        "questionTitle": "Should Richard leave his city for college?",
+        "optionOne": "True",
+        "optionTwo": "False"
+      },
+      "stake": "0.002 MATIC"
+    },
+    {
+      "id": 2,
+      "title": "Game of Thrones",
+      "releaseDate": "26 June 2002",
+      "issueNumber": "3",
+      "content": "Maecenas dapibus metus vitae mauris pretium venenatis. Pellentesque dapibus neque aliquet odio pharetra, id porttitor nibh pharetra. Suspendisse arcu metus, molestie quis libero non, pharetra consectetur lacus. Praesent egestas mauris vel elit blandit faucibus. Aliquam fermentum ipsum in tempus eleifend. Integer sodales, dui a euismod tempor, nisi lectus tristique libero, eget consectetur felis ex eget elit. Quisque ut aliquet purus.",
+      "question": {
+        "questionTitle": "The Royal King must depart for hunting or not?",
+        "optionOne": "True",
+        "optionTwo": "False"
+      },
+      "stake": "0.02 MATIC"
+    }
+  ],
+  "footer": [
+    {
+      "name": "Aabhash Pansari",
+      "rollNo": "11014802719"
+    },
+    {
+      "name": "Pragun Dua",
+      "rollNo": "11014802719"
+    },
+    {
+      "name": "Jenice Tomar",
+      "rollNo": "11014802719"
+    }
+  ]
 }

@@ -36,7 +36,7 @@ const Reader: NextPage = () => {
   const { config } = usePrepareContractWrite({
     ...CREATEACTORS_CONTRACT,
     functionName: 'createReader',
-    args: ['Mitali Sharma', 'Passionate about books, blablabla'],
+    args: [readerName, readerBio],
     onError: (error) => {
       console.log(error);
     },
@@ -64,12 +64,14 @@ const Reader: NextPage = () => {
     const check = readersData.filter((reader: any) => reader[2] == address);
     if (check.length > 0) {
       router.push('reader/explore');
+    } else {
+      alert("reader doesn't exists, hence register!");
     }
   }
 
-  useEffect(() => {
-    checkIfExists();
-  }, []);
+  // useEffect(() => {
+  //   checkIfExists();
+  // }, []);
 
   return (
     <Container>

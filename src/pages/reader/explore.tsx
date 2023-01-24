@@ -9,7 +9,7 @@ const Explore = () => {
       <h1 className="text-6xl mb-10 font-bold">Explore Publications</h1>
       <div className="flex flex-col items-start gap-y-10">
         {data.publications.map((publication, index) => (
-          <Link href={{ pathname: `/reader/${publication.title}` }} key={index}>
+          <Link href={{ pathname: `/reader/${publication.id}` }} key={index}>
             <Publication
               title={publication.title}
               releaseDate={publication.releaseDate}

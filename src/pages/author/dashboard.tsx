@@ -22,7 +22,7 @@ const Dashboard = () => {
   });
 
   useEffect(() => {
-    if (allAuthorsData) {
+    if (allAuthorsData.length > 0) {
       const temp = allAuthorsData.filter((author: any) => author[3] == address);
       setAuthorName(temp[0][0]);
     }
@@ -60,7 +60,7 @@ const Dashboard = () => {
               <Link
                 key={index}
                 href={{
-                  pathname: `/${publication.title}`,
+                  pathname: `/author/${publication.title}`,
                   query: publication,
                 }}>
                 <Publication
